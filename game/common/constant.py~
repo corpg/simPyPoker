@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+
+#Code et POO: Etienne
+#Idée et concept: Florian
+#All Right Reserved 2008
+#Version:  0.1 beta
+
+
+nombreMaxBot = 20 #nombre maximum de bot en jeu (le nombre de participants sera alors de nombreMaxBot + 1)
+
+nombreMinBot = 2  #nombre minimal de bot en jeu
+
+miseMinimale = 10 #la mise minimale
+
+cave = 1000 #ce que possède chaque joueur au début du jeu
+
+flopMinBot = [0, 1, 1, 1, 1] #flop minimum des bots pour qu'ils continues aux rounds 1 à 5 (indice 0 à 4 du tableau)

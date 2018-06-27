@@ -1,0 +1,21 @@
+#*- coding: utf-8 -*-
+# Etienne Glossi - etienne.glossi@gmail.com
+# PyPoker: game.game
+# Classe Game stockant l'état du jeu et permet de le faire avancer
+# 20 décembre 2009
+
+from players import Croupier, Bots, Player
+
+class Game(object):
+    """ Gère le jeu et conserve son état pour le faire avancer. """
+    def __init__(self, player_name, nombre_bots=1):
+        self.bots = Bots(nombre_bots)
+        self.human = Player(player_name)
+        self._pot = 0
+        
+    @property
+    def pot(self):
+        return self._pot
+        
+class TexasHoldem(Game):
+    pass

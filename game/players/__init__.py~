@@ -1,0 +1,9 @@
+#*- coding: utf-8 -*-
+# Etienne Glossi - etienne.glossi@gmail.com
+# PyPoker: game.players
+# Initialisation du module game.players
+# 20 décembre 2009
+
+from player import Player
+from bot import Bots
+from croupier import Croupier

@@ -1,0 +1,77 @@
+#*- coding: utf-8 -*-
+# Etienne Glossi - etienne.glossi@gmail.com
+# PyPoker: game.players.bot.py
+# Classe de définition d'un bot, géré comme un ensemble de game.players.Player par le jeu.
+# Ne définit pas leur réactions façe à une situation (IA), uniquement leur comportements (semblables à un joueur humain).
+# 20 décembre 2009
+
+# TODO: Faire hériter bot de la classe Player
+# TODO: Commenter d'avantage le code
+
+class Bot:
+	def __init__(self, nb):
+		self.bots = []
+		
+		i=1
+		while(i<=nb):
+			self.bots.append(Players(i)) #on stocke les bots
+			i+=1
+				
+	def __str__(self):
+		i = 0
+		texte = ""
+		while(i<len(self.bots)):
+			if(self.bots[i].getGame() != []):
+				texte += "%s possede un %s et un %s (%s credits restants)" % (self.bots[i].getNom(), self.bots[i].getGame()[0], self.bots[i].getGame()[1], self.bots[i].getMoney())
+				if(i!=(len(self.bots)-1)):
+					texte+="\n"
+			i+=1
+			
+		return texte
+		
+	def setGame(self):
+		for p in self.bots:
+			p.setGame()
+			
+	def getGame(self):
+		game = []
+		for p in self.bots:
+			game.append(p.getGame())
+		return game
+		
+	def stopGame(self, idBot):
+		self.bots[idBot-1].stopGame()
+	
+	def mise(self, money, idBot):
+		if(idBot==-1):
+			for bot in self.bots:
+				bot.mise(money)
+		else:
+			self.bots[idBot-1].mise(money)
+		
+	def getMoney(self):
+		money = []
+		for p in self.bots:
+			money.append(p.getMoney())
+		return money
+		
+	def win(self, idBot):
+		return self.bots[idBot-1].win()
+		
+	def getNom(self):
+		nom = []
+		for p in self.bots:
+			nom.append(p.getNom())
+		return nom
+		
+	def getFlop(self):
+		flop = []
+		for p in self.bots:
+			flop.append(p.getFlop())
+		return flop
+		
+	def getCombinaison(self):
+		combi = []
+		for p in self.bots:
+			combi.append(p.getCombinaison())
+		return combi
